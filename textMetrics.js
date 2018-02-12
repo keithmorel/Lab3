@@ -20,7 +20,7 @@ async function createMetrics(text) {
 	let word_count = 0;
 	let word_Occurences = {};
 	for (let x = 0; x < list_words.keys.length; x++) {
-		for (let y = 0, list_words[x].length, y++) {
+		for (let y = 0; list_words[x].length; y++) {
 			if (list_words[x][y] != ' ') {
 				total_letters++;
 			}
