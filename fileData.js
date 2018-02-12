@@ -7,7 +7,7 @@ async function getFileAsString(path) {
 		if (typeof path !== 'string') {
 			throw TypeError('The input path must be a valid string!');
 		}
-		return await fs.readFile(path, 'utf-8');
+		return await fs.readFileAsync(path, 'utf8');
 	}
 	catch (err) {
 		throw err;
@@ -19,7 +19,7 @@ async function getFileAsJSON(path) {
 		if (typeof path !== 'string') {
 			throw TypeError('The input path must be a valid string!');
 		}
-		return await fs.readJSON(path);
+		return await fs.readJSONAsync(path);
 	}
 	catch (err) {
 		throw err;
@@ -31,7 +31,7 @@ async function saveStringToFile(path, text) {
 		if (typeof path !== 'string' || typeof text !== 'string') {
 			throw TypeError('Both arguments must be valid strings!');
 		}
-		const written_str = await fs.writeFile(path, text);
+		const written_str = await fs.outputFileAsync(path, text);
 		return true;
 	}
 	catch (err) {
@@ -47,7 +47,7 @@ async function saveJSONToFile(path, obj) {
 		if (typeof obj !== 'object') {
 			throw TypeError('The input object must be a valid string!');
 		}
-		const written_json = await fs.writeJSON(path, obj, { spaces: '\t' });
+		const written_json = await fs.outputJSONAsync(path, obj, { spaces: '\t' });
 		return true;
 	}
 	catch (err) {

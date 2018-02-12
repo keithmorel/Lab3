@@ -1,5 +1,5 @@
 // Imports
-const fse = require('fs-extra');
+const fs = require('fs-extra');
 const { getFileAsString, getFileAsJSON,	saveStringToFile, saveJSONToFile } = require('./fileData');
 const {	simplify, createMetrics } = require('./textMetrics');
 
@@ -9,7 +9,7 @@ async function runAllMetrics() {
 		for (file in fileList) {
 			const jsonFile = file.replace('.txt', '.result.json');
 			const debug_file = file.replace('.txt', '.debug.txt');
-			if (!await fse.pathExists()) {
+			if (!await fs.pathExists()) {
 				const fileAsString = getFileAsString(file);
 				const simplifiedString = simplify(fileAsString);
 				const fileMetrics = createMetrics(simplifiedString);
