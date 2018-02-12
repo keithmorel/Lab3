@@ -1,6 +1,6 @@
 const bluebird = require("bluebird");
 const Promise = bluebird.Promise;
-const fs = bluebird.promisifyAll(require('fs'));
+const fs = bluebird.promisifyAll(require('fs-extra'));
 
 async function simplify(text) {
 	if (typeof text !== 'string') {
